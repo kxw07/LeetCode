@@ -6,6 +6,42 @@ import java.util.List;
 
 public class Add_Two_Numbers {
 
+    public ListNode improveAddTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode result = new ListNode(0);
+
+        ListNode a = l1, b = l2, curr = result;
+        int carry = 0;
+
+        System.out.println("result :"+result);
+        System.out.println("curr :"+curr);
+
+        while (a != null || b != null) {
+            int x = (a != null)?a.val:0;
+            int y = (a != null)?b.val:0;
+            int sum = x + y + carry;
+
+            System.out.printf("%d, %d, %d, %d",x, y, carry, sum);
+            System.out.println();
+
+            System.out.println("before curr :"+curr);
+            System.out.println("before curr :.next:"+curr.next);
+
+            carry = sum/10;
+            curr.next = new ListNode(sum%10);
+            curr = curr.next;
+            System.out.println("after curr :"+curr);
+            System.out.println("after curr.next :"+curr.next);
+
+            System.out.printf("%d", carry);
+            System.out.println();
+
+            if(a != null)a = a.next;
+            if(b != null)b = b.next;
+        }
+
+        return result.next;
+    }
+
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 
         List reversedlinkedListL1 = toReverseLinkedList(l1);

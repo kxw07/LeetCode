@@ -16,7 +16,7 @@ public class Add_Two_NumbersTest {
         listNode2.next.next = new ListNode(4);
 
         Add_Two_Numbers a = new Add_Two_Numbers();
-        ListNode actual = a.addTwoNumbers(listNode1, listNode2);
+        ListNode actual = a.improveAddTwoNumbers(listNode1, listNode2);
 
         Assert.assertEquals(7, actual.val);
         Assert.assertEquals(0, actual.next.val);
