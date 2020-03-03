@@ -1,5 +1,6 @@
 package medium.add_two_numbers;
 
+import java.math.BigDecimal;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -10,17 +11,20 @@ public class Add_Two_Numbers {
         List reversedlinkedListL1 = toReverseLinkedList(l1);
         List reversedlinkedListL2 = toReverseLinkedList(l2);
 
-
         String combinedString1 = listDigitToString(reversedlinkedListL1);
         String combinedString2 = listDigitToString(reversedlinkedListL2);
 
-        String resultString = String.valueOf(Integer.valueOf(combinedString1) + Integer.valueOf(combinedString2));
+        String resultString = new BigDecimal(combinedString1).add(new BigDecimal(combinedString2)).toString();
 
-        ListNode resultListNode = new ListNode(charToInt(resultString.charAt(resultString.length()-1)));
+        ListNode resultListNode = new ListNode(charToInt(getLastChar(resultString)));
         resultString = resultString.substring(0, resultString.length()-1);
         recursiveListNode(resultListNode, resultString);
 
         return resultListNode;
+    }
+
+    public Character getLastChar(String string) {
+        return string.charAt(string.length()-1);
     }
 
     public Integer charToInt(Character c) {
@@ -29,7 +33,7 @@ public class Add_Two_Numbers {
 
     public ListNode recursiveListNode(ListNode listNode, String resultString) {
         if (resultString.length() > 0) {
-            ListNode ls = new ListNode(charToInt(resultString.charAt(resultString.length()-1)));
+            ListNode ls = new ListNode(charToInt(getLastChar(resultString)));
             listNode.next = ls;
 
             resultString = resultString.substring(0, resultString.length()-1);
