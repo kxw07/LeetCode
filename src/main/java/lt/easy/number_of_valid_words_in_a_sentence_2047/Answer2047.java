@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Answer2047 {
     public int countValidWords(String sentence) {
-        return (int) Arrays.stream(sentence.split("\\s+")).filter(this::checkValid).count();
+        return (int) Arrays.stream(sentence.split(" ")).filter(this::checkValid).count();
     }
 
     private boolean checkValid(String s) {
