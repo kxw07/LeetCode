@@ -12,6 +12,6 @@ public class Answer1331 {
             map.putIfAbsent(sortedArray[idx], idx + 1);
         }
 
-        return Arrays.stream(arr).map(i -> map.get(i)).toArray();
+        return Arrays.stream(arr).map(map::get).toArray();
     }
 }
