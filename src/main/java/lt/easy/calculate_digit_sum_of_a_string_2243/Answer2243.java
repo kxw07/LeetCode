@@ -4,27 +4,23 @@ import java.util.Arrays;
 
 public class Answer2243 {
     public String digitSum(String s, int k) {
-        String result = s;
-
-        while (result.length() > k) {
-            result = cutAndSum(result, k);
-        }
-
-        return result;
+        return cutAndSum(s, k);
     }
 
     public String cutAndSum(String s, int k) {
-        String result = "";
+        if (s.length() <= k) return s;
+
+        StringBuilder result = new StringBuilder();
 
         for (int idx = 0; idx < s.length(); idx += k) {
             if (idx + k > s.length()) {
-                result += sumInt(s.substring(idx, s.length()));
+                result.append(sumInt(s.substring(idx, s.length())));
             } else {
-                result += sumInt(s.substring(idx, idx + k));
+                result.append(sumInt(s.substring(idx, idx + k)));
             }
         }
 
-        return result;
+        return cutAndSum(result.toString(), k);
     }
 
     public int sumInt(String s) {
