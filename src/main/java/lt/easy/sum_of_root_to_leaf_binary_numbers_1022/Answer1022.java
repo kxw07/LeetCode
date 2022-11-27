@@ -1,27 +1,28 @@
 package lt.easy.sum_of_root_to_leaf_binary_numbers_1022;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Answer1022 {
-    public int sumRootToLeaf(TreeNode root) {
-        List<Integer> nodeResult = new ArrayList<>();
-        preorder(root, 0, nodeResult);
 
-        return nodeResult.stream().mapToInt(Integer::intValue).sum();
+    private int result = 0;
+
+    public int sumRootToLeaf(TreeNode root) {
+        preorder(root, 0);
+
+        return result;
     }
 
-    public void preorder(TreeNode root, int sum, List<Integer> nodeResult) {
+    public void preorder(TreeNode root, int sum) {
         if (root == null) return;
 
         sum = (sum << 1) + root.val;
         if (root.left == null && root.right == null) {
-            nodeResult.add(sum);
+            result += sum;
             return;
         }
 
-        preorder(root.left, sum, nodeResult);
-        preorder(root.right, sum, nodeResult);
+        preorder(root.left, sum);
+        preorder(root.right, sum);
     }
 
     // Definition for a binary tree node.
