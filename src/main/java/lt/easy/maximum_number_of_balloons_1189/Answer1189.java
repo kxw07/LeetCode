@@ -5,17 +5,28 @@ import java.util.Collections;
 
 public class Answer1189 {
     public int maxNumberOfBalloons(String text) {
-        text =addPrefixAndSuffix(text);
-        final int b = text.split("b").length - 1;
-        final int a = text.split("a").length - 1;
-        final int l = (text.split("l").length - 1)/2;
-        final int o = (text.split("o").length - 1)/2;
-        final int n = text.split("n").length - 1;
+        int[] charCount = new int[5];
 
-        return Collections.min(Arrays.asList(b, a, l, o, n));
-    }
+        for (char c : text.toCharArray()) {
+            switch (c) {
+                case 'b':
+                    charCount[0]++;
+                    break;
+                case 'a':
+                    charCount[1]++;
+                    break;
+                case 'l':
+                    charCount[2]++;
+                    break;
+                case 'o':
+                    charCount[3]++;
+                    break;
+                case 'n':
+                    charCount[4]++;
+                    break;
+            }
+        }
 
-    public String addPrefixAndSuffix(String text) {
-        return "z" + text + "z";
+        return Collections.min(Arrays.asList(charCount[0], charCount[1], charCount[2] / 2, charCount[3] / 2, charCount[4]));
     }
 }
