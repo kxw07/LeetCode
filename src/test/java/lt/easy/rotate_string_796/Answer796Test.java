@@ -18,4 +18,10 @@ class Answer796Test {
         Assertions.assertFalse(sut.rotateString(s, goal));
     }
 
+    @Test
+    void example3() {
+        String s = "aa", goal = "a";
+        Assertions.assertFalse(sut.rotateString(s, goal));
+    }
+
 }
