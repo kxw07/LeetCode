@@ -9,7 +9,7 @@ class Answer1022Test {
 
     @Test
     public void example1() {
-//        int[] root = new int[]{1, 0, 1, 0, 1, 0, 1};
+//        int[] root = {1, 0, 1, 0, 1, 0, 1};
         final Answer1022.TreeNode treeNode = new Answer1022.TreeNode(1,
                 new Answer1022.TreeNode(0,
                         new Answer1022.TreeNode(0, null, null), new Answer1022.TreeNode(1, null, null)),
@@ -21,7 +21,7 @@ class Answer1022Test {
 
     @Test
     public void example2() {
-//        int[] root = new int[]{0};
+//        int[] root = {0};
         final Answer1022.TreeNode treeNode = new Answer1022.TreeNode(0, null, null);
         Assertions.assertEquals(0, sut.sumRootToLeaf(treeNode));
     }

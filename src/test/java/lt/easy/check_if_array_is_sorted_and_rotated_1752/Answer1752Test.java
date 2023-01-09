@@ -9,19 +9,19 @@ class Answer1752Test {
 
     @Test
     void example1() {
-        int[] nums = new int[]{3, 4, 5, 1, 2};
+        int[] nums = {3, 4, 5, 1, 2};
         Assertions.assertTrue(sut.check(nums));
     }
 
     @Test
     void example2() {
-        int[] nums = new int[]{2, 1, 3, 4};
+        int[] nums = {2, 1, 3, 4};
         Assertions.assertFalse(sut.check(nums));
     }
 
     @Test
     void example3() {
-        int[] nums = new int[]{1, 2, 3};
+        int[] nums = {1, 2, 3};
         Assertions.assertTrue(sut.check(nums));
     }
 
