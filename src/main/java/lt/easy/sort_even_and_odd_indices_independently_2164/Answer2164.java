@@ -5,7 +5,7 @@ import java.util.*;
 public class Answer2164 {
     public int[] sortEvenOdd(int[] nums) {
         Integer[] odds = new Integer[nums.length / 2];
-        Integer[] evens = new Integer[nums.length % 2 == 0 ? nums.length / 2 : nums.length / 2 + 1];
+        Integer[] evens = new Integer[nums.length - nums.length / 2];
 
         int oddIndex = 0;
         int evenIndex = 0;
