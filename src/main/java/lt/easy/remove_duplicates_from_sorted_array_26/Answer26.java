@@ -1,8 +1,6 @@
 package lt.easy.remove_duplicates_from_sorted_array_26;
 
 
-import java.util.Arrays;
-
 public class Answer26 {
     public int removeDuplicates(int[] nums) {
         int nonDuplicatedNumIndex = 1;
