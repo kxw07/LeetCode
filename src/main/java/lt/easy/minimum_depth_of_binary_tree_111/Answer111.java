@@ -7,25 +7,13 @@ public class Answer111 {
             return 0;
         }
 
-        int depth = 1;
+        int leftDepth = minDepth(root.left);
+        int rightDepth = minDepth(root.right);
 
-        return find(root, depth);
-    }
-
-    private int find(TreeNode node, int depth) {
-        if (noChildren(node)) {
-            return depth;
+        if (leftDepth == 0 || rightDepth == 0) {
+            return 1 + Math.max(leftDepth, rightDepth);
         } else {
-            depth++;
-
-            return Math.min(
-                    node.left == null ? Integer.MAX_VALUE : find(node.left, depth),
-                    node.right == null ? Integer.MAX_VALUE : find(node.right, depth)
-            );
+            return 1 + Math.min(leftDepth, rightDepth);
         }
-    }
-
-    private boolean noChildren(TreeNode node) {
-        return node.left == null && node.right == null;
     }
 }

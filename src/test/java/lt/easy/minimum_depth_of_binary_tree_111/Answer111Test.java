@@ -34,4 +34,9 @@ class Answer111Test {
         Assertions.assertEquals(5, sut.minDepth(root));
     }
 
+    @Test
+    void case1() {
+        Assertions.assertEquals(0, sut.minDepth(null));
+    }
+
 }
