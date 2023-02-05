@@ -7,11 +7,12 @@ public class Answer2190 {
     public int mostFrequent(int[] nums, int key) {
         int last = nums[0];
         int maxAppearTimes = 0;
+        int maxAppearTimesTarget = 0;
         Map<Integer, Integer> map = new HashMap<>();
 
         for (int idx = 1; idx < nums.length; idx++) {
             if (last == key) {
-                final Integer appearTimes = map.compute(nums[idx], (k, v) -> {
+                final int appearTimes = map.compute(nums[idx], (k, v) -> {
                     if (v == null) {
                         return 1;
                     } else {
@@ -19,13 +20,16 @@ public class Answer2190 {
                     }
                 });
 
-                maxAppearTimes = Math.max(appearTimes, maxAppearTimes);
+                if (appearTimes > maxAppearTimes) {
+                    maxAppearTimes = appearTimes;
+                    maxAppearTimesTarget = nums[idx];
+                }
+
             }
 
             last = nums[idx];
         }
 
-        final int a = maxAppearTimes;
-        return map.entrySet().stream().filter(e -> e.getValue() == a).findFirst().orElseThrow().getKey();
+        return maxAppearTimesTarget;
     }
 }
