@@ -21,4 +21,20 @@ class Answer2190Test {
 
         Assertions.assertEquals(2, sut.mostFrequent(nums, key));
     }
+
+    @Test
+    void example3() {
+        int[] nums = {1, 90, 1, 100, 1, 100, 1, 90, 1, 100};
+        int key = 1;
+
+        Assertions.assertEquals(100, sut.mostFrequent(nums, key));
+    }
+
+    @Test
+    void example4() {
+        int[] nums = {1, 90, 1, 100, 1, 100, 1, 90, 1, 100};
+        int key = 1;
+
+        Assertions.assertEquals(100, sut.mostFrequent(nums, key));
+    }
 }
